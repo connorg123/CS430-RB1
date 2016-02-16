@@ -1,0 +1,71 @@
+#Mod6.rb
+#Connor Granrud
+#CS 430
+
+#1. Factors
+
+#Defalts at 1 to prevent a crash if no parameters are entered
+def factors(n)
+
+	#Create Array
+	array = []
+	
+	if n < 1
+		return array
+	end	
+	
+	#Interate and add to empty array
+	(1..n).each do |num|
+		if (n % num) == 0
+			array.push(num)
+		end
+	end
+	return array
+end
+
+#2. Primes
+
+def primes(n)
+a = []
+	for i in 2..n 
+ 		j = factors(i)
+		if j.length == 2
+			a.push(i)
+		end
+	end
+	return a
+end
+
+#3. countChars(str)
+
+def countChars(str)
+
+	hash = {}
+	hash.default = 0
+	ltr = str.chars
+	ltr.each do |i|
+		hash[i] += 1
+	end
+	puts hash
+end
+
+#4. toCountsArrys(Counts)
+
+def toCountsArray(counts)
+	lo = counts.sort
+	return lo.to_a
+end
+#5. Encode
+def encode(str, encoding)
+
+	res=""
+
+	str.each_char do |i|
+		if encoding.has_key?(res)
+			res << |encoding[i]|
+		end
+	end
+	return res
+end
+
+
